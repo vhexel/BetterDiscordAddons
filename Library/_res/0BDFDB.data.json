@@ -611,7 +611,7 @@
 		"UserSettingsAppearance": {"strings": ["handleMessageDisplayModeChange", "APPEARANCE_MESSAGE_DISPLAY_COMPACT", "handleFontSizeChange"], "noSearch": true},
 		"UserThemeContainer": {"strings": ["profileUi", "\"VIEW\"", ".Provider"], "noSearch": true},
 		"VideoBackground": {"strings": ["backgroundSrc:", "pulseSpeakingIndicator:", ".avatarWrapper"]},
-		"VoiceUser": {"strings": [".voiceUser", ".content", "userNameClassName"]},
+		"VoiceUser": {"strings": ["speaking", "collapsed", "userNameClassName"]},
 		"VoiceUsers": {"strings": ["hidePreview", "previewIsOpen", ".MOVE_MEMBERS"]}
 	},
 	"ModuleUtilsConfig": {
