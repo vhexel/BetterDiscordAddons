@@ -2,7 +2,7 @@
  * @name GameActivityToggle
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.3.9
+ * @version 1.4.0
  * @description Adds a Quick-Toggle Game Activity Button
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -181,7 +181,7 @@ module.exports = (_ => {
 				this.modulePatches = {
 					after: [
 						"Account",
-						"AccountPopout"
+						"UserProfile"
 					]
 				};
 				
@@ -326,7 +326,7 @@ module.exports = (_ => {
 				else insertButton(e.returnvalue.props.children);
 			}
 			
-			processAccountPopout (e) {
+			processUserProfile (e) {
 				if (!this.settings.general.showItem) return;
 				let userpopoutMenus = BDFDB.ReactUtils.findChild(e.returnvalue, {props: [["className", BDFDB.disCN.userpopoutmenus]]});
 				if (!userpopoutMenus) return;
