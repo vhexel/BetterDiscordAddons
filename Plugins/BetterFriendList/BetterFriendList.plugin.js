@@ -2,7 +2,7 @@
  * @name BetterFriendList
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.6.9
+ * @version 1.7.0
  * @description Adds extra Controls to the Friends Page, for example sort by Name/Status, Search and Amount Numbers, new Tabs
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -343,7 +343,7 @@ module.exports = (_ => {
 								{key: "statusIndex", label: BDFDB.LanguageUtils.LibraryStrings.status},
 								{key: "date", label: BDFDB.LanguageUtils.LanguageStrings.DATE},
 							].filter(n => n).map(data => BDFDB.ReactUtils.createElement("div", {
-								className: BDFDB.DOMUtils.formatClassName(BDFDB.disCN.tableheadercellwrapper, BDFDB.disCN.tableheadercell, BDFDB.disCN._betterfriendlistnamecell, sortKey == data.key && BDFDB.disCN.tableheadercellsorted, BDFDB.disCN.tableheadercellclickable),
+								className: BDFDB.DOMUtils.formatClassName(BDFDB.disCN.tableheadercell, BDFDB.disCN._betterfriendlistnamecell, sortKey == data.key && BDFDB.disCN.tableheadercellsorted, BDFDB.disCN.tableheadercellclickable),
 								children: BDFDB.ReactUtils.createElement("div", {
 									className: BDFDB.disCN.tableheadercellcontent,
 									children: [
