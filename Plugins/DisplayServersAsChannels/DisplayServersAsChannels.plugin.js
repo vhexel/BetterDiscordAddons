@@ -2,7 +2,7 @@
  * @name DisplayServersAsChannels
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.0.3
+ * @version 2.0.4
  * @description Displays Servers in a similar way as Channels
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -217,10 +217,9 @@ module.exports = (_ => {
 			processDirectMessage (e) {
 				if (!e.instance.props.channel.id) return;
 				if (e.returnvalue.props.children && e.returnvalue.props.children.props) e.returnvalue.props.children.props.className = BDFDB.DOMUtils.formatClassName(e.returnvalue.props.children.props.className, BDFDB.LibraryStores.UserGuildSettingsStore.isChannelMuted(null, e.instance.props.channel.id) && BDFDB.disCN._displayserversaschannelsmuted);
-				let text = BDFDB.ReactUtils.findValue(e.returnvalue, "text");
 				e.returnvalue = this.removeTooltip(e.returnvalue);
 				e.returnvalue = this.removeMask(e.returnvalue);
-				this.addElementName(e.returnvalue, text, {
+				this.addElementName(e.returnvalue, e.instance.props.channelName, {
 					isDm: true
 				});
 			}
@@ -321,8 +320,9 @@ module.exports = (_ => {
 				e.instance.props.shouldShow = false;
 			}
 			
-			removeTooltip (parent, guild) {
+			removeTooltip (parent, guild, log) {
 				let [children, index] = BDFDB.ReactUtils.findParent(parent, {name: ["ListItemTooltip", "GuildTooltip", "BDFDB_TooltipContainer"]});
+				if (log) console.log(parent);
 				if (index == -1) {
 					if (guild) return BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
 						text: BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.GuildVoiceList, {
