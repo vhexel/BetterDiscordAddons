@@ -379,7 +379,7 @@ img:not([src]), img[src=""], img[src="null"] {
 	visibility: visible;
 }
 [REPLACE_CLASS_sliderbubble] {
-	background-color: var(--background-nested-floating);
+	background-color: var(--background-base-lowest);
 	border-radius: 3px;
 	top: -32px;
 	height: 22px;
@@ -402,7 +402,7 @@ img:not([src]), img[src=""], img[src="null"] {
 }
 [REPLACE_CLASS_sliderbubble]::before {
 	border: 5px solid transparent;
-	border-top-color: var(--background-nested-floating);
+	border-top-color: var(--background-base-lowest);
 	content: " ";
 	width: 0;
 	height: 0;
@@ -1554,12 +1554,12 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	border-radius: 3px !important;
 }
 [REPLACE_CLASS_colorpickersaturation] > div > div > div > div {
-	box-shadow: var(--text-strong) 0px 0px 0px 1.5px, var(--background-nested-floating) 0px 0px 1px 1px inset, var(--background-nested-floating) 0px 0px 1px 2px !important;
+	box-shadow: var(--text-strong) 0px 0px 0px 1.5px, var(--background-base-lowest) 0px 0px 1px 1px inset, var(--background-base-lowest) 0px 0px 1px 2px !important;
 }
 [REPLACE_CLASS_colorpickerhue] > div > div > div > div,
 [REPLACE_CLASS_colorpickeralpha] > div > div > div > div {
 	background: var(--text-strong) !important;
-	box-shadow: var(--background-nested-floating) 0px 0px 2px !important;
+	box-shadow: var(--background-base-lowest) 0px 0px 2px !important;
 }
 [REPLACE_CLASS_colorpickeralpha] > div > div,
 [REPLACE_CLASS_colorpickergradient] > div > div {
@@ -1792,7 +1792,7 @@ input[REPLACE_CLASS_input][REPLACE_CLASS_inputerror] {
 	opacity: 1;
 }
 [REPLACE_CLASS_toastdefault] [REPLACE_CLASS_toastbg] {
-	background-color: var(--background-nested-floating);
+	background-color: var(--background-base-lowest);
 }
 [REPLACE_CLASS_toastdefault] [REPLACE_CLASS_toastinner] {
 	color: var(--text-strong);

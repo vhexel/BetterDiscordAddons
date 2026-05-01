@@ -75,7 +75,7 @@ module.exports = (_ => {
 						background-color: var(--background-base-lowest);
 					}
 					${BDFDB.dotCNS.searchresultspagination + BDFDB.dotCN.input} {
-						background-color: var(--background-nested-floating);
+						background-color: var(--background-base-lowest);
 					}
 					${BDFDB.dotCNS.searchresultspagination + BDFDB.dotCN.paginationcontainer} {
 						margin-top: 0;

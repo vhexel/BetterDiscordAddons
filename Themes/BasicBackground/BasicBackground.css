@@ -197,7 +197,7 @@
 	--card-gradient-bg: var(--background-base-lowest);
 	--card-primary-bg: var(--background-base-low);
 	--card-secondary-bg: var(--background-base-lower);
-	--card-gradient-pressed-bg: var(--background-nested-floating);
+	--card-gradient-pressed-bg: var(--background-base-lowest);
 	--card-primary-pressed-bg: var(--background-base-lower);
 	--card-secondary-pressed-bg: var(--background-base-lowest);
 	
@@ -1070,7 +1070,7 @@ body:has(#app-mount)::after {
 	background: linear-gradient(0deg, rgba(var(--transparencycolor_v), .5), rgba(var(--transparencycolor_v), .1));
 }
 .container__34c2c {											
-	border-color: var(--background-nested-floating);
+	border-color: var(--background-base-lowest);
 }
 .divider_ee23ac {									/* forum				fat divider							*/
 	background: var(--border-strong);
@@ -2415,7 +2415,7 @@ body:has(#app-mount)::after {
 	border: none;
 }
 .container_a14595:hover {
-	background-color: var(--background-nested-floating);
+	background-color: var(--background-base-lowest);
 }
 #app-mount .peopleListItem_cc6179 {
 	margin-left: var(--space-16);
@@ -4423,7 +4423,7 @@ body:has(#app-mount)::after {
 	background-color: rgba(var(--backgroundtertiary), .6);
 }
 #app-mount .overridePlaceholder_db81c6 {
-	border: 1px dashed var(--background-nested-floating);
+	border: 1px dashed var(--background-base-lowest);
 }
 
 /* ----		13.17.		PODIUMSTARTMODAL				---- */
@@ -4683,7 +4683,7 @@ body:has(#app-mount)::after {
 .outer_c0bea0:not(.custom-user-profile-theme) .statusBubbleOuter_af9888,
 .outer_c0bea0:not(.custom-user-profile-theme) .statusBubbleOuter_af9888:before,
 .outer_c0bea0:not(.custom-user-profile-theme) .statusBubbleOuter_af9888:after {
-	background: var(--background-nested-floating);
+	background: var(--background-base-lowest);
 	border-color: transparent;
 }
 .outer_c0bea0:not(.custom-user-profile-theme) .container__8061a,
