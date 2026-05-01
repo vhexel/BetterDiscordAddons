@@ -320,7 +320,7 @@ module.exports = (_ => {
 				e.instance.props.shouldShow = false;
 			}
 			
-			removeTooltip (parent) {
+			removeTooltip (parent, guild) {
 				let [children, index] = BDFDB.ReactUtils.findParent(parent, {name: ["ListItemTooltip", "GuildTooltip", "BDFDB_TooltipContainer"]});
 				if (index == -1) {
 					if (guild) return BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.TooltipContainer, {
