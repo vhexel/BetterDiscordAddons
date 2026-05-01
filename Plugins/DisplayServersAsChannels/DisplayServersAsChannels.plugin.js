@@ -2,7 +2,7 @@
  * @name DisplayServersAsChannels
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.0.4
+ * @version 2.0.5
  * @description Displays Servers in a similar way as Channels
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -96,8 +96,7 @@ module.exports = (_ => {
 				};
 				
 				this.css = `
-					${BDFDB.dotCN.guildlistitemtooltip},
-					${BDFDB.dotCN.tooltip}:has(${BDFDB.dotCN.guildlistitemtooltip}),
+					${BDFDB.dotCN.tooltip}:not(${BDFDB.dotCN._serverdetailstooltip}):has(${BDFDB.dotCN.guildlistitemtooltip}),
 					${BDFDB.dotCN._displayserversaschannelsname} ~ ${BDFDB.dotCN.guildfolderbuttoninner} {
 						display: none !important;
 					}
@@ -231,7 +230,7 @@ module.exports = (_ => {
 				e.returnvalue.props.children[1].props.children = this.removeMask(this.removeMask(e.returnvalue.props.children[1].props.children));
 				let backBadges = [e.returnvalue.props.children[1].props.children.props.children].flat(10).slice(1);
 				e.returnvalue.props.children[1].props.children.props.children = [[e.returnvalue.props.children[1].props.children.props.children].flat(10)[0]];
-				if (!BDFDB.BDUtils.isPluginEnabled("ServerDetails")) e.returnvalue.props.children[1] = this.removeTooltip(e.returnvalue.props.children[1].props.children, e.instance.props.guild);
+				e.returnvalue.props.children[1] = this.removeTooltip(e.returnvalue.props.children[1].props.children, e.instance.props.guild);
 				this.addElementName([e.returnvalue.props.children[1].props.children.props.children].flat(10)[0], e.instance.props.guild.name, {
 					frontBadges: [
 						this.settings.general.showGuildIcon && BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.GuildIcon, {
