@@ -2,7 +2,7 @@
  * @name Translator
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.8.3
+ * @version 2.8.4
  * @description Allows you to translate incoming and your outgoing Messages within Discord
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -472,9 +472,12 @@ module.exports = (_ => {
 							label: translated ? this.labels.context_messageuntranslateoption : this.labels.context_messagetranslateoption,
 							disabled: isTranslating,
 							id: BDFDB.ContextMenuUtils.createItemId(this.name, translated ? "untranslate-message" : "translate-message"),
-							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-								icon: translated ? translateIconUntranslate : translateIcon
-							}),
+							leadingAccessory: {
+								type: "icon",
+								icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+									icon: translated ? translateIconUntranslate : translateIcon
+								})
+							},
 							action: _ => this.translateMessage(e.instance.props.message, e.instance.props.channel)
 						}));
 					}
@@ -816,9 +819,12 @@ module.exports = (_ => {
 						icon: hint && (_ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuHint, {
 							hint: hint
 						})),
-						icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-							icon: translated ? translateIconUntranslate : translateIcon
-						}),
+						leadingAccessory: {
+							type: "icon",
+							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+								icon: translated ? translateIconUntranslate : translateIcon
+							})
+						},
 						disabled: !translated && isTranslating,
 						action: _ => this.translateMessage(e.instance.props.message, e.instance.props.channel)
 					}));
@@ -838,9 +844,12 @@ module.exports = (_ => {
 					children.splice(index > -1 ? index + 1 : 0, 0, BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuGroup, {
 						children: BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
 							id: BDFDB.ContextMenuUtils.createItemId(this.name, "search-translation"),
-							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-								icon: translateIcon
-							}),
+							leadingAccessory: {
+								type: "icon",
+								icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+									icon: translateIcon
+								})
+							},
 							disabled: isTranslating,
 							label: this.labels.context_translator,
 							persisting: true,
@@ -1474,10 +1483,7 @@ module.exports = (_ => {
 						content: translationPrompt
 					}],
 					temperature: 0.2,
-					top_p: 0.8,
-					thinking: {
-						type: "disabled"
-					}
+					top_p: 0.8
 				};
 
 				BDFDB.LibraryRequires.request("https://api.deepseek.com/v1/chat/completions", {

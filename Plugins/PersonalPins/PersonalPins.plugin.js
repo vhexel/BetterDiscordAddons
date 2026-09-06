@@ -2,7 +2,7 @@
  * @name PersonalPins
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 2.3.6
+ * @version 2.3.7
  * @description Allows you to locally pin Messages
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -443,17 +443,23 @@ module.exports = (_ => {
 						children.splice(index + 1, 0, BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
 							label: note ? this.labels.context_unpinoption : this.labels.context_pinoption,
 							id: BDFDB.ContextMenuUtils.createItemId(this.name, note ? "unpin-note" : "pin-note"),
-							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-								icon: note ? pinIconDelete : pinIcon
-							}),
+							leadingAccessory: {
+								type: "icon",
+								icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+									icon: note ? pinIconDelete : pinIcon
+								})
+							},
 							action: _ => this.addMessageToNotes(e.instance.props.message, e.instance.props.channel)
 						}));
 						if (this.isNoteOutdated(note, e.instance.props.message)) children.splice(index + 1, 0, BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
 							label: this.labels.context_updateoption,
 							id: "update-note",
-							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-								icon: pinIconUpdate
-							}),
+							leadingAccessory: {
+								type: "icon",
+								icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+									icon: pinIconUpdate
+								})
+							},
 							action: _ => this.updateNoteData(note, e.instance.props.message)
 						}));
 					}
@@ -528,17 +534,23 @@ module.exports = (_ => {
 						icon: hint && (_ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuHint, {
 							hint: hint
 						})),
-						icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-							icon: note ? pinIconDelete : pinIcon
-						}),
+						leadingAccessory: {
+							type: "icon",
+							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+								icon: note ? pinIconDelete : pinIcon
+							})
+						},
 						action: _ => this.addMessageToNotes(e.instance.props.message, e.instance.props.channel)
 					}));
 					if (this.isNoteOutdated(note, e.instance.props.message)) children.splice(index > -1 ? index + 1: 0, 0, BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
 						label: this.labels.context_updateoption,
 						id: BDFDB.ContextMenuUtils.createItemId(this.name, "update-note"),
-						icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
-							icon: pinIconUpdate
-						}),
+						leadingAccessory: {
+							type: "icon",
+							icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+								icon: pinIconUpdate
+							})
+						},
 						action: _ => this.updateNoteData(note, e.instance.props.message)
 					}));
 				}

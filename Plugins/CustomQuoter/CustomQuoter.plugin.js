@@ -2,7 +2,7 @@
  * @name CustomQuoter
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.4.1
+ * @version 1.4.2
  * @description Brings back the Quote Feature and allows you to set your own Quote Formats
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -130,10 +130,12 @@ module.exports = (_ => {
 							children.splice(index > -1 ? index : 0, 0, BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
 								label: BDFDB.LanguageUtils.LanguageStrings.QUOTE,
 								id: BDFDB.ContextMenuUtils.createItemId(this.name, "quote"),
-								icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.SvgIcon, {
-									className: BDFDB.disCN.menuicon,
-									name: BDFDB.LibraryComponents.SvgIcon.Names.QUOTE
-								}),
+								leadingAccessory: {
+									type: "icon",
+									icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+										icon: BDFDB.LibraryComponents.SvgIcon.Names.QUOTE
+									})
+								},
 								action: event => {
 									this.quote(e.instance.props.channel, e.instance.props.message, event.shiftKey);
 								}
@@ -317,6 +319,16 @@ module.exports = (_ => {
 						let [unreadChildren, unreadIndex] = BDFDB.ContextMenuUtils.findItem(e.returnvalue, {id: "mark-unread"});
 						unreadChildren.splice(unreadIndex > -1 ? unreadIndex - 1 : unreadChildren.length, 0, item);
 					}
+					item.props.leadingAccessory = {
+						type: "icon",
+						icon: _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuIcon, {
+							icon: BDFDB.LibraryComponents.SvgIcon.Names.QUOTE
+						})
+					};
+					let hint = BDFDB.BDUtils.isPluginEnabled("MessageUtilities") ? BDFDB.BDUtils.getPlugin("MessageUtilities").getActiveShortcutString("__Quote_Message") : null;
+					if (hint) item.props.icon = _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuHint, {
+						hint: hint
+					});
 					let addedFormats = BDFDB.ObjectUtils.exclude(formats, "Standard");
 					if (!BDFDB.ObjectUtils.isEmpty(addedFormats)) item.props.children = BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuGroup, {
 						children: Object.keys(addedFormats).map(key => BDFDB.ContextMenuUtils.createItem(BDFDB.LibraryComponents.MenuItems.MenuItem, {
@@ -325,16 +337,6 @@ module.exports = (_ => {
 							action: event => {action(key, event.shiftKey);}
 						}))
 					});
-					else {
-						item.props.icon = _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.SvgIcon, {
-							className: BDFDB.disCN.menuicon,
-							name: BDFDB.LibraryComponents.SvgIcon.Names.QUOTE
-						});
-						let hint = BDFDB.BDUtils.isPluginEnabled("MessageUtilities") ? BDFDB.BDUtils.getPlugin("MessageUtilities").getActiveShortcutString("__Quote_Message") : null;
-						if (hint) item.props.icon = _ => BDFDB.ReactUtils.createElement(BDFDB.LibraryComponents.MenuItems.MenuHint, {
-							hint: hint
-						});
-					}
 				}
 			}
 		
